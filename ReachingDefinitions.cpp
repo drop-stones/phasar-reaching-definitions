@@ -12,7 +12,7 @@ ReachingDefinitions::ReachingDefinitions(const ProjectIRDB *IRDB,
                                          const LLVMBasedCFG *CF,
                                          const LLVMPointsToInfo *PT,
                                          std::set<std::string> EntryPoints)
-  : IntraMonoProblem<ReachingDefinitionsAnalysisDomain>(
+  : IntraMonoProblem<ReachingDefinitionsDomain>(
       IRDB, TH, CF, PT, std::move(EntryPoints)) {}
 
 ReachingDefinitions::mono_container_t

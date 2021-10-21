@@ -29,14 +29,10 @@ int main(int argc, char **argv)
     LLVMPointsToSet PT{DB};
     LLVMBasedICFG CF(DB, CallGraphAnalysisType::OTF, {"main"}, &TH, &PT);
     ReachingDefinitions RD(&DB, &TH, &CF, &PT, {"main"});
-    IntraMonoSolver<ReachingDefinitionsAnalysisDomain> MonoSolver(RD);
+    IntraMonoSolver<ReachingDefinitionsDomain> MonoSolver(RD);
 
     MonoSolver.solve();
 
-    //std::cout << "LLVMTypeHierarchy::print" << std::endl;
-    //TH.print(std::cout);
-    //std::cout << "\nLLVMPointsToSet::print" << std::endl;
-    //PT.print(std::cout);
     MonoSolver.dumpResults();
   } else {
     std::cerr << "Error: file does not contain a 'main' function!" << std::endl;

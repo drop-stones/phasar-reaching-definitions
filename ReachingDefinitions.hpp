@@ -17,21 +17,21 @@
 
 namespace psr {
 
-struct ReachingDefinitionsAnalysisDomain : public LLVMAnalysisDomainDefault {
+struct ReachingDefinitionsDomain : public LLVMAnalysisDomainDefault {
   // Data-flow fact
   using d_t = const llvm::StoreInst *;
   using mono_container_t = BitVectorSet<d_t>;
 };
 
-class ReachingDefinitions : public IntraMonoProblem<ReachingDefinitionsAnalysisDomain> {
+class ReachingDefinitions : public IntraMonoProblem<ReachingDefinitionsDomain> {
 public:
-  using n_t = ReachingDefinitionsAnalysisDomain::n_t;
-  using d_t = ReachingDefinitionsAnalysisDomain::d_t;
-  using f_t = ReachingDefinitionsAnalysisDomain::f_t;
-  using t_t = ReachingDefinitionsAnalysisDomain::t_t;
-  using v_t = ReachingDefinitionsAnalysisDomain::v_t;
-  using i_t = ReachingDefinitionsAnalysisDomain::i_t;
-  using mono_container_t = ReachingDefinitionsAnalysisDomain::mono_container_t;
+  using n_t = ReachingDefinitionsDomain::n_t;
+  using d_t = ReachingDefinitionsDomain::d_t;
+  using f_t = ReachingDefinitionsDomain::f_t;
+  using t_t = ReachingDefinitionsDomain::t_t;
+  using v_t = ReachingDefinitionsDomain::v_t;
+  using i_t = ReachingDefinitionsDomain::i_t;
+  using mono_container_t = ReachingDefinitionsDomain::mono_container_t;
 
   ReachingDefinitions(const ProjectIRDB *IRDB,
                       const LLVMTypeHierarchy *TH,
